@@ -1,100 +1,102 @@
-# PopX Educase React Assignment
+# PopX - Educase India Technical Assessment
 
-Welcome to the **PopX** React application, developed for the Educase India ReactJS Developer assignment! This application focuses on delivering a beautiful, pixel-perfect UI with high reusability, smooth animations, and robust functionality, meeting top-tier industry standards.
+This repository contains the PopX web application, developed as part of the Educase India ReactJS Developer assignment. The application focuses on delivering a modular, highly reusable, and performant frontend architecture utilizing modern React patterns and utility-first CSS.
 
-![App Preview](https://via.placeholder.com/1000x400/6C38FF/FFFFFF?text=PopX+React+Application)
+## Table of Contents
 
-## 📑 Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
+- [Application Flow](#application-flow)
+- [Architecture & Key Features](#architecture--key-features)
+- [Technical Stack](#technical-stack)
 - [Prerequisites](#prerequisites)
-- [Setup Instructions](#setup-instructions)
-- [Folder Structure](#folder-structure)
-- [Common Errors & Troubleshooting](#common-errors--troubleshooting)
-- [Deployment](#deployment)
+- [Local Development Setup](#local-development-setup)
+- [Directory Structure](#directory-structure)
+- [Troubleshooting & Common Errors](#troubleshooting--common-errors)
+- [Deployment Guide](#deployment-guide)
 
-## 🚀 Overview
+## Application Flow
 
-PopX is a fully responsive React web application that showcases modern user interface design with a focus on seamless interactions and pixel-perfection. The application mimics a digital platform's onboarding and user profile flow, specifically tailored for Educase India.
+The PopX application implements a complete onboarding and user management flow consisting of the following key stages:
 
-## ✨ Key Features
+1. **Landing Screen (`/`)**: The entry point of the application. Presents the platform value proposition with clear Call-to-Action (CTA) buttons navigating to either the registration or login flows.
+2. **Registration Page (`/register`)**: Captures detailed user data (Name, Phone, Email, Password, Company, Agency Status). Upon form submission, the data is validated and persisted to local storage, simulating a backend API post request. The user is then automatically routed to the profile view.
+3. **Login Page (`/login`)**: A secure entry point for returning users. The form requires both an email and password to enable the submission action, demonstrating controlled input validation.
+4. **Profile Page (`/profile`)**: A personalized dashboard that retrieves and displays the authenticated user's information from local storage. It features an interactive avatar component with an update-ready UI and smooth micro-animations.
 
-- **Pixel-Perfect Design:** Faithfully translates Adobe XD mockups into functional React components.
-- **Tailwind CSS Styling:** Replaced all standard CSS with modern, utility-first Tailwind CSS for greater maintainability and scalability.
-- **Reusable Components:** Features highly modular components (e.g., `Button`, `InputField`) that can be used universally across the application.
-- **Smooth Animations:** Includes micro-interactions, hover states, fade-ins, and slide-up animations for a premium feel.
-- **Responsive Layout:** Adapts flawlessly across different screen sizes, centering the mobile-view app container beautifully on larger desktop screens.
-- **Form State Management:** Implements functional state handling for forms without relying heavily on third-party libraries.
-- **Local Storage Integration:** Persists user data locally, mimicking a real backend connection for the profile page.
+## Architecture & Key Features
 
-## 🛠 Tech Stack
+- **Component-Driven Architecture**: Core UI elements like inputs and buttons are completely abstracted into reusable components (`src/components`), ensuring UI consistency across the entire platform.
+- **Utility-First Styling**: All styling is handled via Tailwind CSS, completely eliminating arbitrary CSS files. This approach guarantees zero specificity conflicts and highly maintainable stylesheets.
+- **State & Data Persistence**: Implements React hooks (`useState`, `useEffect`) for localized state management, coupled with the Web Storage API (`localStorage`) for session persistence across page reloads.
+- **Micro-Interactions & Animation**: Integrates sophisticated CSS transitions, fade-ins, and hardware-accelerated animations directly into the Tailwind configuration for a premium user experience without external animation libraries.
+- **Mobile-First Responsive Design**: The application logic natively prioritizes the mobile viewport. On desktop viewports, the application renders inside a sophisticated mobile device frame with interactive background blurring to maintain design integrity.
 
-- **ReactJS (v19)** - Frontend Library
-- **Vite** - Next Generation Frontend Tooling
-- **Tailwind CSS (v3)** - Utility-First CSS Framework
-- **React Router DOM (v7)** - Declarative Routing
+## Technical Stack
 
-## 📋 Prerequisites
+- **Framework**: React.js (v19)
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS (v3)
+- **Routing**: React Router DOM (v7)
 
-Before you begin, ensure you have the following installed on your machine:
-- Node.js (v18.0 or higher)
-- npm or yarn or pnpm
+## Prerequisites
 
-## ⚙️ Setup Instructions
+Ensure the following dependencies are installed on your local development environment:
+- Node.js (v18.0 or higher recommended)
+- Package Manager: npm, yarn, or pnpm
 
-Follow these steps to get the project up and running locally:
+## Local Development Setup
+
+Follow these commands to initialize and run the project locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone <repository-url>
    cd Educase-India
    ```
 
-2. **Install dependencies:**
+2. **Install project dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+3. **Initialize the development server:**
    ```bash
    npm run dev
    ```
 
-4. **View the app:**
-   Open your browser and navigate to `http://localhost:5173`.
+4. **Access the application:**
+   Navigate to `http://localhost:5173` in your preferred web browser.
 
-## 📁 Folder Structure
+## Directory Structure
 
-```
+```text
 src/
-├── assets/         # Images, icons, and static assets
-├── components/     # Reusable UI components (Button, InputField)
-├── pages/          # Application routes/pages (Landing, Login, Register, Profile)
-├── App.jsx         # Main application entry point and router setup
-├── index.css       # Global styles and Tailwind directives
-└── main.jsx        # React DOM rendering
+├── assets/         # Static assets, branding, and imagery
+├── components/     # Modular and reusable UI primitives (Button, InputField)
+├── pages/          # Primary application views containing core business logic
+├── App.jsx         # Root component containing routing definitions
+├── index.css       # Tailwind configuration imports and base style resets
+└── main.jsx        # DOM entry point and React StrictMode wrapper
 ```
 
-## 🐛 Common Errors & Troubleshooting
+## Troubleshooting & Common Errors
 
-### 1. `Command not found: vite` or `Command not found: tailwindcss`
-**Solution:** Ensure all dependencies are correctly installed. Run `npm install` again. If the issue persists, clear the `node_modules` folder and `package-lock.json` and reinstall.
+### Command not found: vite
+**Issue:** The package manager failed to map binary dependencies.
+**Resolution:** Delete the `node_modules` directory and `package-lock.json`, then execute a clean installation using `npm install`.
 
-### 2. Styles not applying / Tailwind classes not working
-**Solution:** Check that the development server is running (`npm run dev`). Tailwind compiles styles on demand. If adding a new class doesn't update, verify that your files are covered by the `content` array in `tailwind.config.js`.
+### Styles are not applying correctly
+**Issue:** Tailwind CSS engine is not tracking the file for utility classes.
+**Resolution:** Ensure that the `tailwind.config.js` file has the correct paths defined within the `content` array. Restart the development server (`npm run dev`) to clear the Vite cache.
 
-### 3. Blank Screen on Load
-**Solution:** Open the browser developer console (F12). Check for any routing issues or missing imports. Ensure React Router DOM is properly set up in `App.jsx`.
+### Blank screen upon navigation
+**Issue:** React Router is failing to resolve the configured paths.
+**Resolution:** Verify the routing map in `App.jsx`. Ensure that the `BrowserRouter` context properly wraps the route definitions.
 
-## 🌐 Deployment
+## Deployment Guide
 
-The application is fully prepared to be hosted on Vercel, Netlify, or any similar hosting platform.
+The application is statically generated and optimized for platforms like Vercel or Netlify.
 
-**Deploying to Vercel (Recommended):**
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel` in the root directory.
-3. Follow the CLI prompts to deploy.
-
-Alternatively, you can connect your GitHub repository directly to Vercel or Netlify via their web dashboards for automatic deployments on push.
+**Vercel Deployment Procedure:**
+1. Install the Vercel CLI globally: `npm i -g vercel`
+2. Execute the `vercel` command from the root directory.
+3. Follow the interactive prompts to provision and deploy the application.
