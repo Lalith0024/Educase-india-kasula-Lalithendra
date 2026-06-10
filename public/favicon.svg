@@ -1,0 +1,13 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon Base -->
+  <path d="M128 16L224.994 72V184L128 240L31.006 184V72L128 16Z" fill="#00529B"/>
+  
+  <!-- Inner White Cutout -->
+  <path d="M128 44L200.746 86V170L128 212L55.254 170V86L128 44Z" fill="white"/>
+  
+  <!-- The 'e' and 'i' abstract shapes inside -->
+  <path d="M128 60L180 90V166L128 196L76 166V90L128 60Z" fill="#00529B"/>
+  <rect x="116" y="116" width="24" height="60" fill="white"/>
+  <circle cx="128" cy="94" r="14" fill="white"/>
+  <path d="M76 130H140V146H76V130Z" fill="white"/>
+</svg>
